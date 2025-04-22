@@ -1,6 +1,7 @@
 {
-  "title": "kulloths-darksheet",
-  "description": "DarkDND",
+  "id": "kullothsdarksheet",
+  "title": "Kulloth's Homebrew",
+  "description": "A simple module modifying some of the default D&D 5e content to match the homebrew and variant rules of Kulloth's D&D games.",
   "version": "1.2.1",
   "type": "module",
   "esmodules": [
@@ -44,7 +45,6 @@
   "url": "https://github.com/Khaloth/Kulloths-Darksheet",
   "manifest": "https://raw.githubusercontent.com/Khaloth/Kulloths-Darksheet/master/module.json",
   "download": "https://github.com/Khaloth/Kulloths-Darksheet/archive/refs/heads/master.zip",
-  "id": "kullothsdarksheet",
   "authors": [
     {
       "name": "Kulloth",

@@ -302,7 +302,7 @@ async function addStressBar(app, html, data) {
 
     let meterGroup = html.find(".meter-group").eq(1);
     if (meterGroup.length > 0) {
-        let stressBarTemplate = await renderTemplate("modules/darksheet/templates/stressbar.html", data);
+        let stressBarTemplate = await renderTemplate("modules/kullothsdarksheet/templates/stressbar.html", data);
         meterGroup.append(stressBarTemplate);
     }
 
