@@ -142,7 +142,6 @@
         <a class="item" data-tab="spellbook">{{ localize "DND5E.Spellbook" }}</a>
         <a class="item" data-tab="effects">{{ localize "DND5E.Effects" }}</a>
         <a class="item" data-tab="biography">{{ localize "DND5E.Biography" }}</a>
-        <a class="item" data-tab="dd">DD</a>
     </nav>
 
     {{!-- Character Sheet Body --}}
@@ -298,11 +297,6 @@
                 {{editor biographyHTML target="system.details.biography.value" button=true editable=editable
                          engine="prosemirror" collaborate=false}}
             </div>
-        </div>
-
-        {{!-- Darker Dungeons Tab --}}
-        <div class="tab dd flexcol" data-group="primary" data-tab="dd">
-            {{> "modules/darkdnd/templates/Tab_DD.html"}}
         </div>
     </section>
 </form>
