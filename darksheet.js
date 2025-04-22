@@ -193,8 +193,8 @@ Hooks.once('init', function() {
 
 Hooks.once('init', () => {
     loadTemplates([
-        'modules/darksheet/templates/Tab_DD.html',
-        'modules/darksheet/templates/character-sheet.html'
+        'modules/kullothsdarksheet/templates/Tab_DD.html',
+        'modules/kullothsdarksheet/templates/character-sheet.html'
     ]);
 });
 
@@ -229,7 +229,7 @@ Hooks.on(`renderActorSheet`, (app, html, data) => {
 async function applySpellBurnoutToSheet(app, html, data) {
     let container = html.find(".spells").find(".top");
 
-    let inventoryAdditionsTemplate = await renderTemplate("modules/darksheet/templates/spellburnout.html", data);
+    let inventoryAdditionsTemplate = await renderTemplate("modules/kullothsdarksheet/templates/spellburnout.html", data);
 
     // Convert the HTML string into DOM elements
     let tempDiv = document.createElement("div");
@@ -240,7 +240,7 @@ async function applySpellBurnoutToSheet(app, html, data) {
 async function applyFatigueAndTemperatureAdditions(app, html, data) {
     let container = html.find(".main-content").find(".tab-body").find(".details").find(".right").find(".flexrow");
 
-    let inventoryAdditionsTemplate = await renderTemplate("modules/darksheet/templates/fatigue.html", data);
+    let inventoryAdditionsTemplate = await renderTemplate("modules/kullothsdarksheet/templates/fatigue.html", data);
 
     // Convert the HTML string into DOM elements
     let tempDiv = document.createElement("div");
@@ -252,7 +252,7 @@ async function applyInventoryAdditions(app, html, data) {
     let inventoryContainer = html.find(".inventory-element");
 
     if (inventoryContainer.length > 0) {
-        let inventoryAdditionsTemplate = await renderTemplate("modules/darksheet/templates/inventoryAdditions.html", data);
+        let inventoryAdditionsTemplate = await renderTemplate("modules/kullothsdarksheet/templates/inventoryAdditions.html", data);
 
         // Convert the HTML string into DOM elements
         let tempDiv = document.createElement("div");
@@ -384,7 +384,7 @@ async function loadItemData(app, html, data) {
     if (data.item.type == "Spell" || data.item.type  == "Feature") return; //DISABLE SPELL AND FEATURES
 
     data.NotEditable = !data.cssClass.includes("editable");
-    let itemDataTemplate = await renderTemplate("modules/darksheet/templates/itemdata.html", data);
+    let itemDataTemplate = await renderTemplate("modules/kullothsdarksheet/templates/itemdata.html", data);
 
     const firstElement = html.find('.sheet-header').first();
     if (firstElement.length > 0) {
@@ -418,7 +418,7 @@ async function addWoundsToSheet(sheet, html, data) {
     woundBarDiv.classList.add("pills-group", "woundsection", "woundS1");
     woundBarDiv.innerHTML = '<button type="button" class="rollable button" title="Click to roll for reopened wounds" class="deathsavelabel woundroll rollReopenWounds rollable" actorid="' + actor.id + '">Reopen Wounds</button><button type="button" class="rollable button addwoundbutton" id="addwound" actorID="' + sheet.actor.id + '"><i class="fas fa-plus"></i> Add Wound</button>';
 
-    let woundTable = await renderTemplate("modules/darksheet/templates/wounds.html", data);
+    let woundTable = await renderTemplate("modules/kullothsdarksheet/templates/wounds.html", data);
 
     let countersSection = html.find(".main-content").find(".tab-body").find(".details").find(".right").find(".flexrow");
     countersSection.after(woundTable);
@@ -660,7 +660,7 @@ async function addDarkSheetTab(app, html, data) {
     let sheet = html.find(".tab-body");
     let hideChecks = game.settings.get("darksheet", "hidechecks");
     data.hidechecks = hideChecks;
-    let darkSheetTabHTML = await renderTemplate("modules/darksheet/templates/Tab_DD.html", data);
+    let darkSheetTabHTML = await renderTemplate("modules/kullothsdarksheet/templates/Tab_DD.html", data);
     await sheet.append(darkSheetTabHTML);
 
     // Set Training Tab as Active
@@ -713,13 +713,13 @@ async function darkSheetSetup(app, html, data) {
     }
     //SPELL BURNOUT
     let spellFilters = html.find(".spellcasting-ability");
-    let spellBurn = await renderTemplate("modules/darksheet/templates/spellburnout.html", data);
+    let spellBurn = await renderTemplate("modules/kullothsdarksheet/templates/spellburnout.html", data);
     spellFilters.append(spellBurn);
     //DEATHSAVES
     /*//Deactivate OLD
     html.find(".death-saves").remove();
     let sheet = html.find(".counters");
-    let DeathSaves = await renderTemplate("modules/darksheet/templates/deathsaves.html", data);
+    let DeathSaves = await renderTemplate("modules/kullothsdarksheet/templates/deathsaves.html", data);
     sheet.prepend(DeathSaves);*/
 
     //region INVENTORY
@@ -1779,7 +1779,7 @@ class DSC extends Application {
             templateData.data.screenData = game.world.flags.darksheet.darkscreen;
         //LOAD DATA
 
-        const templatePath = "modules/darksheet/templates/darkscreen.html";
+        const templatePath = "modules/kullothsdarksheet/templates/darkscreen.html";
         DSC.renderMenu(templatePath, templateData);
 
     }
